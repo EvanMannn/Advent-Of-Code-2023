@@ -1,2 +1,2 @@
 # Advent-Of-Code-2023
-Collection of solutions to the advent of code 2023 competition
+This is a collection of my solutions to the Advent of Code 2023 problem sets. Each day has its own folder with the respective files for the problems. Some files/classes/functions etc are reused througout multiple problems and thus are collected in the Global_Functions folder that contains the header and cpp files required to use them. All problems were attempted to be completed in C++, however there may be outliers due to problem constraints or requirements.
