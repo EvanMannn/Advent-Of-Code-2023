@@ -28,11 +28,9 @@ int calculate_calibration_part1(string puzzleInputFileName)
 
 int main(void)
 {
-	//int part1_answer = calculate_calibration_part1(string("day1PuzzleInput.txt"));
+	int part1_answer = calculate_calibration_part1(string("day1PuzzleInput.txt"));
 
-	//cout << "The answer to part 1 is:" << part1_answer;
-
-	int test = calculate_calibration_part1(string("day1PuzzleInput.txt"));
+	cout << "The answer to part 1 is: " << part1_answer;
 
 	return 0;
 }
