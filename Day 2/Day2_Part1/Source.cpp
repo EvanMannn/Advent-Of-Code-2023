@@ -23,11 +23,11 @@ int checkGames(string fileName)
 
 		//Skip the line starter that says the game number
 		getline(inputFile, fileLineSeg, ':');
-		
+
 		//Create a string stream for the current game
 		getline(inputFile, fileLine);
 		stringstream s(fileLine);
-		
+
 		//Loop over each random selection
 		while (getline(s, randomSelection, ';'))
 		{
@@ -46,7 +46,7 @@ int checkGames(string fileName)
 
 				//Find the substring for the count
 				count = cubeSelection.substr(0, cubeSelection.find_first_of(' '));
-				
+
 				if (cubeColour == "green")
 					if (stoi(count) > 13)
 						validGame = false;
@@ -58,7 +58,7 @@ int checkGames(string fileName)
 				if (cubeColour == "red")
 					if (stoi(count) > 12)
 						validGame = false;
-				
+
 			}
 		}
 
