@@ -7,6 +7,7 @@
 #include <cmath>
 #include <map>
 
+
 using namespace std;
 
 
@@ -55,7 +56,43 @@ int main(void)
 		seeds.push_back(stoll(temp));
 	}
 
-	inputFile.get();
+	//Turn seeds into ranges based on the prompt
+	
+	vector<long long> newSeeds;
+	/*for (long long i = 0; i < 6; i += 2)
+	{
+		cout << i << endl;
+		for (long long j = seeds[i]; j < seeds[i] + seeds[i + 1]; j++) {
+			newSeeds.push_back(j);
+		}
+	}
+
+	*/
+
+	vector<long long> test1;
+	for (int i = 0; i < seeds.size(); i += 2)
+		test1.push_back(seeds[i]);
+
+	vector<long long> test2;
+	for (int i = 1; i < seeds.size(); i += 2)
+		test2.push_back(seeds[i]);
+
+
+	for (int i = 0; i < test1.size(); i++)
+	{
+		cout << test1[i] << "  " << test1[i] + test2[i] << endl;
+	}
+
+	vector<long long> test3;
+
+	test3.resize(test1.size() + test2.size());
+
+	set_union(
+		test1.begin(), test1.end(),
+		test2.begin(), test2.end(),
+		test3.begin()
+	);
+
 
 
 	//Get destination, source and length vectors
@@ -64,7 +101,7 @@ int main(void)
 
 	while (getline(inputFile, temp))
 	{
-		
+
 
 		if (skipHeader) {
 			skipHeader = false;
@@ -72,7 +109,7 @@ int main(void)
 		}
 
 		if (temp == string(0, '\n')) {
-			seeds = useAlmanac(seeds, destStarts, sourceStarts, lengths);
+			newSeeds = useAlmanac(newSeeds, destStarts, sourceStarts, lengths);
 			destStarts.clear(); sourceStarts.clear(), lengths.clear();
 			skipHeader = true;
 		}
@@ -88,17 +125,17 @@ int main(void)
 			i++;
 		}
 
-		
+
 	}
 
 	long long lowestLocation = -1;
-	for (int i = 0; i < seeds.size(); i++)
+	for (long long i = 0; i < newSeeds.size(); i++)
 	{
 		if (lowestLocation == -1) lowestLocation = seeds[i];
-		else if (seeds[i] < lowestLocation) lowestLocation = seeds[i];
+		else if (newSeeds[i] < lowestLocation) lowestLocation = seeds[i];
 	}
 
-	cout << "The answer to day five part 1 is: " << lowestLocation;
+	cout << "A potential answer to day five part 2 is: " << lowestLocation;
 
 	return 0;
 }
